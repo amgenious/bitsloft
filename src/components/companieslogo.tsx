@@ -1,10 +1,9 @@
-import { ikolilu, smartwatt, xypress } from "../assets";
+import { smartwatt, smartwatthub, } from "../assets";
 
 
 const companies = [
   { name: 'SmartWatt Company Limited', logo: smartwatt,website:"https://smartwattcompanylimited.com" },
-  { name: 'ikolilu', logo: ikolilu, website:"https://ikolilu.com" },
-  { name: 'Xypress', logo: xypress, wesite:"#" },
+  { name: 'SmartWatt Hub', logo: smartwatthub, wesite:"https://smartwatthub.vercel.app" },
 ];
 
 const CompanieslogoComponent = () => {

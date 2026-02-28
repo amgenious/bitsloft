@@ -14,16 +14,16 @@ import {
   Linkedin,
   Loader2,
 } from "lucide-react";
-// import CompanieslogoComponent from "./components/companieslogo";
+import CompanieslogoComponent from "./components/companieslogo";
 import emailjs from "@emailjs/browser";
  import { ToastContainer, toast } from 'react-toastify';
 import { Bounce } from "react-toastify/unstyled";
+import ClientsProductsPage from "./components/products";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [sending, setSending] = useState(false);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,10 +43,70 @@ function App() {
     const templateID = import.meta.env.VITE_TEMPLATEID;
     const userID = import.meta.env.VITE_USERID;
 
+    if(formData.name == ""){
+      toast('Sender Full Name cannot be empty!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+       setSending(false)   
+      return
+    }
+if(formData.email == ""){
+  toast('Sender Email Cannot be empty!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    setSending(false)  
+  return
+}
+if(formData.type == ""){
+  toast('Sender Service type cannot be null!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      setSending(false)
+  return
+}
+if(formData.email == ""){
+  toast('Sender Message cannot be null!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      setSending(false)
+  return
+}
+
     emailjs
       .send(serviceID, templateID, formData,userID)
       .then((response:any) => {
-        // alert("");
         toast('Message sent successfully!', {
         position: "top-center",
         autoClose: 5000,
@@ -435,7 +495,8 @@ function App() {
           </div>
         </div>
       </section>
-      {/* <CompanieslogoComponent /> */}
+      <CompanieslogoComponent />
+      <ClientsProductsPage />
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

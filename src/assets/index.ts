@@ -1,5 +1,6 @@
 import smartwatt from "./smartwattlogo.png"
-import ikolilu from "./ikolilulogo.png"
-import xypress from "./xypresslogo.png"
+import smartwatthub from "./smartdelivery-logo.png"
+import smwatt from "./smwatt.png"
+import smwatthub from "./smwatthub.png"
 
-export {smartwatt,ikolilu,xypress}
+export {smartwatt,smartwatthub,smwatt,smwatthub}
