@@ -526,7 +526,7 @@ if(formData.email == ""){
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Email</h4>
-                    <p className="text-slate-600">bitsloft@gmail.com</p>
+                    <a className="text-slate-600" href="mailto:bitsloft26@gmail.com">bitsloft26@gmail.com</a>
                   </div>
                 </div>
 
@@ -536,7 +536,7 @@ if(formData.email == ""){
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Phone</h4>
-                    <p className="text-slate-600">+233 200039099</p>
+                    <p className="text-slate-600">+233 599364295</p>
                   </div>
                 </div>
 
@@ -704,7 +704,9 @@ if(formData.email == ""){
               <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-slate-300">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a className="hover:text-white transition-colors cursor-pointer"
+                   onClick={() => scrollToSection("about")}
+                  >
                     About Us
                   </a>
                 </li>
@@ -719,7 +721,9 @@ if(formData.email == ""){
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a className="hover:text-white transition-colors cursor-pointer"
+                   onClick={() => scrollToSection("contact")}
+                  >
                     Contact
                   </a>
                 </li>
