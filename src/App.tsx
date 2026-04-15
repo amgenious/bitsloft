@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import CompanieslogoComponent from "./components/companieslogo";
 import emailjs from "@emailjs/browser";
- import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { Bounce } from "react-toastify/unstyled";
 import ClientsProductsPage from "./components/products";
 
@@ -27,39 +27,39 @@ function App() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    type:"",
+    type: "",
     message: "",
   });
 
-    const handleChange = (e:any) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const sendEmail = (e:any) => {
-    setSending(true)
+  const sendEmail = (e: any) => {
+    setSending(true);
     e.preventDefault();
     // EmailJS configuration
     const serviceID = import.meta.env.VITE_SERVICEID;
     const templateID = import.meta.env.VITE_TEMPLATEID;
     const userID = import.meta.env.VITE_USERID;
 
-    if(formData.name == ""){
-      toast('Sender Full Name cannot be empty!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
-       setSending(false)   
-      return
+    if (formData.name == "") {
+      toast("Sender Full Name cannot be empty!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      setSending(false);
+      return;
     }
-if(formData.email == ""){
-  toast('Sender Email Cannot be empty!', {
+    if (formData.email == "") {
+      toast("Sender Email Cannot be empty!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -70,11 +70,11 @@ if(formData.email == ""){
         theme: "light",
         transition: Bounce,
       });
-    setSending(false)  
-  return
-}
-if(formData.type == ""){
-  toast('Sender Service type cannot be null!', {
+      setSending(false);
+      return;
+    }
+    if (formData.type == "") {
+      toast("Sender Service type cannot be null!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -85,11 +85,11 @@ if(formData.type == ""){
         theme: "light",
         transition: Bounce,
       });
-      setSending(false)
-  return
-}
-if(formData.email == ""){
-  toast('Sender Message cannot be null!', {
+      setSending(false);
+      return;
+    }
+    if (formData.email == "") {
+      toast("Sender Message cannot be null!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -100,41 +100,41 @@ if(formData.email == ""){
         theme: "light",
         transition: Bounce,
       });
-      setSending(false)
-  return
-}
+      setSending(false);
+      return;
+    }
 
     emailjs
-      .send(serviceID, templateID, formData,userID)
-      .then((response:any) => {
-        toast('Message sent successfully!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+      .send(serviceID, templateID, formData, userID)
+      .then((response: any) => {
+        toast("Message sent successfully!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
         console.log("Success:", response.status);
       })
-      .catch((error:any) => {
-                toast('Failed to send message. Please try again later.!', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
+      .catch((error: any) => {
+        toast("Failed to send message. Please try again later.!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
         });
         console.error("Error:", error);
       });
-      setSending(false)
+    setSending(false);
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -495,7 +495,7 @@ if(formData.email == ""){
           </div>
         </div>
       </section>
-      <CompanieslogoComponent />
+      {/*<CompanieslogoComponent /> */}
       <ClientsProductsPage />
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white">
@@ -526,7 +526,12 @@ if(formData.email == ""){
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Email</h4>
-                    <a className="text-slate-600" href="mailto:bitsloft26@gmail.com">bitsloft26@gmail.com</a>
+                    <a
+                      className="text-slate-600"
+                      href="mailto:bitsloft26@gmail.com"
+                    >
+                      bitsloft26@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -608,8 +613,12 @@ if(formData.email == ""){
                     onChange={handleChange}
                     name="type"
                   >
-                    <option value={"software_development"}>Software Development</option>
-                    <option value={"custom_software_tools"}>Custom Software Tools</option>
+                    <option value={"software_development"}>
+                      Software Development
+                    </option>
+                    <option value={"custom_software_tools"}>
+                      Custom Software Tools
+                    </option>
                     <option value={"tech_consultancy"}>Tech Consultancy</option>
                     <option value={"others"}>other</option>
                   </select>
@@ -640,9 +649,11 @@ if(formData.email == ""){
                   onClick={sendEmail}
                   disabled={sending}
                 >
-                  {
-                    sending ? <Loader2 className="animate-spin"/> : "Send Message"
-                  }
+                  {sending ? (
+                    <Loader2 className="animate-spin" />
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </form>
             </div>
@@ -704,8 +715,9 @@ if(formData.email == ""){
               <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-slate-300">
                 <li>
-                  <a className="hover:text-white transition-colors cursor-pointer"
-                   onClick={() => scrollToSection("about")}
+                  <a
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() => scrollToSection("about")}
                   >
                     About Us
                   </a>
@@ -721,8 +733,9 @@ if(formData.email == ""){
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-white transition-colors cursor-pointer"
-                   onClick={() => scrollToSection("contact")}
+                  <a
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() => scrollToSection("contact")}
                   >
                     Contact
                   </a>
