@@ -14,7 +14,6 @@ import {
   Linkedin,
   Loader2,
 } from "lucide-react";
-import CompanieslogoComponent from "./components/companieslogo";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import { Bounce } from "react-toastify/unstyled";
@@ -541,7 +540,7 @@ function App() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Phone</h4>
-                    <p className="text-slate-600">+233 599364295</p>
+                    <p className="text-slate-600">+233 500164618</p>
                   </div>
                 </div>
 
